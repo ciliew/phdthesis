@@ -1,0 +1,36 @@
+\providecommand \autonum@processReference [2]{}
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax
+\babel@toc {english}{}
+\contentsline {chapter}{\chapternumberline {1}Documentation of class}{1}{chapter.3}%
+\contentsline {section}{\numberline {1.1}Main.tex}{1}{section.4}%
+\contentsline {subsection}{\numberline {1.1.1}Blackthesis}{1}{subsection.5}%
+\contentsline {section}{\numberline {1.2}Preamble}{2}{section.6}%
+\contentsline {subsubsection}{misc.tex}{2}{section.6}%
+\contentsline {subsubsection}{draft.tex}{2}{section.6}%
+\contentsline {subsubsection}{Figures}{2}{section.6}%
+\contentsline {subsection}{\numberline {1.2.1}statics.tex}{2}{subsection.7}%
+\contentsline {section}{\numberline {1.3}Frontmatter}{3}{section.8}%
+\contentsline {subsection}{\numberline {1.3.1}frontpage.tex}{3}{subsection.9}%
+\contentsline {subsection}{\numberline {1.3.2}contents.tex}{3}{subsection.10}%
+\contentsline {section}{\numberline {1.4}Backmatter}{3}{section.11}%
+\contentsline {subsection}{\numberline {1.4.1}backpage.tex}{3}{subsection.12}%
+\contentsline {subsection}{\numberline {1.4.2}A bit about references}{3}{subsection.13}%
+\contentsline {chapter}{\chapternumberline {2}My writing process}{5}{chapter.22}%
+\contentsline {section}{\numberline {2.1}The Braindump}{5}{section.23}%
+\contentsline {section}{\numberline {2.2}The Outline}{5}{section.24}%
+\contentsline {section}{\numberline {2.3}The Vomit Draft}{5}{section.25}%
+\contentsline {section}{\numberline {2.4}Trees maps and theorems}{5}{section.26}%
+\contentsline {section}{\numberline {2.5}The paragraph}{6}{section.28}%
+\contentsline {section}{\numberline {2.6}Sanity checks}{7}{section.29}%
+\contentsline {chapter}{\chapternumberline {3}Random Examples}{9}{chapter.30}%
+\contentsline {section}{\numberline {3.1}Short title for sec}{9}{section.31}%
+\contentsline {section}{\numberline {3.2}Other Examples}{9}{section.33}%
+\contentsline {section}{\numberline {3.3}Remarks and Theorems}{10}{section.39}%
+\contentsline {subsection}{\numberline {3.3.1}Fancy Quotes}{11}{subsection.46}%
+\contentsline {subsection}{\numberline {3.3.2}Fun little thing}{11}{subsection.47}%
+\contentsline {subsection}{\numberline {3.3.3}Options in the blindtext package}{12}{subsection.48}%
+\contentsline {chapter}{\chapternumberline {4}Experiments}{15}{chapter.59}%
+\setcounter {tocdepth}{0}
+\contentsline {part}{\partnumberline {I}\spacedlowsmallcaps {Appendix}}{17}{part.61}%
+\tocpartskip
+\contentsfinish

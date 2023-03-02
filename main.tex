@@ -1,0 +1,254 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PhD Thesis
+% Cilie W. Feldager
+%
+% progplan: https://docs.google.com/spreadsheets/d/1w7HuOBZHn7flwv08kWuxVxPYJXr9nv2VGs3Gq5927qw/edit#gid=1834352503
+%
+% Based Jesper Rask Pedersen's thesis which was based on dionhaefner's thesis which was based on uiothesis and classicthesis
+%
+% Compile with ``pdflatex -shell-escape "thesis".tex``
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-----------------------------------------------
+
+\documentclass[a4paper,12pt,twoside,blackthesis,openright]{phdthesis} % Other options draft, blackthesis
+
+
+% Language setup
+\usepackage[danish,english]{babel}
+\setquotestyle{english}
+
+%\hyphenation{pa-ra-me-te-ri-za-tion vis-cosi-ty sver-drups dions-thesis}
+\graphicspath{{figures/\blackfigspath}} % appends to path if blackthesis is chosen
+\bibliography{references.bib}
+%\addbibresource{references.bib}
+
+\usepackage{listings}
+
+% Additional preamble files
+%\input{preamble/pgfcache}
+%\input{preamble/listings}
+\input{preamble/misc}
+\input{preamble/statics} % Info on author, uni, etc
+\input{preamble/drafts}  % Draft packages. This line can be outcommented when done
+
+\usepackage{makeidx}
+\makeindex
+
+\hyphenation{co-vector}
+
+% Don't know what these do, outcomment on 2022-06-22
+%\usepackage[acronym,automake]{glossaries-extra}
+%\setabbreviationstyle[acronym]{long-short}
+%\newacronym{gplvm}{GP-LVM}{Gaussian process latent variable model}
+%\newacronym{dtu}{DTU}{Technical University of Denmark}
+%\makeglossaries
+
+\usepackage[font=small,skip=5pt]{caption}
+
+%\usepackage{nomencl}
+%\makenomenclature
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stuff that should be moved at a later point
+% Should be moved to class
+
+% MATH STUFF
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+%\usepackage{lastpage} % lastpage, commented out on 04.JUN because I don't know what it does.
+\usepackage{amsmath,amssymb,mleftright} % amsmath&symboler
+
+\usepackage{cleveref}
+\crefname{part}{part}{parts}
+\crefname{chapter}{chapter}{chapters}
+\crefname{section}{section}{sections}
+\crefname{subsection}{subsection}{subsections}
+
+% Used for the table in example.tex
+\usepackage{booktabs} 
+%\usepackage{siunitx} % for having numbers aligned to the decimal point
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\usepackage{morewrites} % Fixes something I don't quite understand but I added it myself. Test if it is needed. Keep it in for now (2021-04-27). I had removed it in may-2022 and ended up debugging a bunch to realise that I need this package!
+
+% Change the appearance of margin notes
+\renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{amsmath} % provides numberwithin (and lots more)
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{remark}{Remark}%[chapter]
+
+\usepackage{listlbls}
+
+
+\usepackage[final]{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+\usetikzlibrary{arrows}
+
+\usepackage{forest}
+\usepackage{cancel}
+
+\definecolor{folderbg}{RGB}{124,166,198}
+\definecolor{folderborder}{RGB}{110,144,169}
+
+\def\Size{4pt}
+\tikzset{
+  folder/.pic={
+    \filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+      (-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);  
+    \filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+      (-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
+  }
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define bools for handy include of front-, main- and back matters
+\newboolean{includefrontmatter}   
+\newboolean{includemainmatter}   
+\newboolean{includebackmatter}   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setboolean{includefrontmatter}{true}   
+\setboolean{includemainmatter}{true}   
+\setboolean{includebackmatter}{true}   
+
+%\pagestyle{simple}
+% Setting the style of the chapter
+%\chapterstyle{mychapterstyle} % uses images instead of actual numbers. Make sure that these images are the same size and that enough of them correspond to the number of chapters. You should have a set for both black and white thesis
+\chapterstyle{margin} 
+
+
+% I have no clue why this should be necessary. I want to delete it.
+% check alphabet length
+%\newlength{\alphabetlength}
+%\settowidth{\alphabetlength}{abcdefghijklmnopqrstuvwxyz}
+%\the\alphabetlength
+%-----------------------------------------------
+%   FRONT MATTER
+%-----------------------------------------------
+
+\ifthenelse{\boolean{includefrontmatter}}{ % start of bool to include frontmatter
+
+\frontmatter
+\pdfbookmark[-1]{Front matter}{frontmatter}
+\pagestyle{empty}
+\pagenumbering{gobble}
+\hypersetup{pageanchor=false}
+
+\include{frontmatter/frontpage}
+\cleardoublepage
+
+\include{frontmatter/titleback}
+\cleardoublepage
+
+%\pagenumbering{roman}
+%\pagestyle{simple}
+%
+%\include{frontmatter/dedication}
+%\cleardoublepage
+%
+%\include{frontmatter/abstract}
+%\cleardoublepage
+%
+%\include{frontmatter/abstract_danish}
+%\cleardoublepage
+%
+%\include{frontmatter/preface}
+%\cleardoublepage
+%
+%\include{frontmatter/acknowledgements}
+%\cleardoublepage
+%
+%\include{frontmatter/listofpublications}
+%\cleardoublepage
+
+\include{frontmatter/contents} % See also notation.tex
+\cleardoublepage
+}{}  % end of bool to include frontmatter
+
+
+
+
+%-----------------------------------------------
+%   MAIN MATTER
+%-----------------------------------------------	
+\ifthenelse{\boolean{includemainmatter}}{ % start of bool to include mainmatter
+
+\mainmatter
+\pagestyle{mystyle}
+\bookmarksetup{startatroot}
+\pagenumbering{arabic}
+\hypersetup{pageanchor=True}
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+%\listoftodos
+
+%-----------------------------------------------
+%   BODY
+%-----------------------------------------------
+
+\pagestyle{mystyle}
+\include{chapters/examples}			
+
+
+}{} % end of bool to include mainmatter
+
+%-----------------------------------------------
+%   APPENDIX
+%----------------------------------------------
+\ifthenelse{\boolean{includebackmatter}}{ % start of bool to include backmatter
+\appendix
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\part*{Appendix}
+
+% IMPORTANT: If you want to include papers then using the @twoside boolean fixes issues with indentation.
+%\setboolean{@twoside}{false}
+%\include{backmatter/publications} % Final draft
+%\setboolean{@twoside}{true}
+
+
+%-----------------------------------------------
+%   BACK MATTER
+%-----------------------------------------------
+
+\bookmarksetup{startatroot}
+%\include{backmatter/bibliography}
+%\cleardoublepage
+\pdfbookmark[-1]{Back matter}{backmatter}
+\pagestyle{empty}
+
+
+\cleardoublepage
+%\printbibliography
+\include{backmatter/bibliography}
+%\cleardoublepage
+
+%\cleardoublepage
+%\printindex
+
+%\cleardoublepage
+%\include{backmatter/colophon}
+
+\cleardoublepage
+\include{backmatter/backpage}
+}{} % end of bool to include backmatter
+%-----------------------------------------------
+
+\end{document}

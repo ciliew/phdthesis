@@ -1,0 +1,110 @@
+%*******************************************************
+% Table of Contents
+%*******************************************************
+\refstepcounter{dummy}
+\pdfbookmark[1]{\contentsname}{tableofcontents}
+\thispagestyle{simple}
+\tableofcontents*
+%\clearpage
+\cleardoublepage
+
+
+%*******************************************************
+% List of Figures, Tables, Listings, Acronyms, Notation
+%*******************************************************
+
+\begingroup 
+
+%*******************************************************
+% List of Figures
+%*******************************************************  
+%\refstepcounter{dummy}
+%\pdfbookmark[1]{\listfigurename}{lof}
+%\newlistof{listoffigures}{lof}{\listfigurename}
+%\listoffigures*
+%
+%\clearpage
+%\cleardoublepage
+
+%*******************************************************
+% List of Tables
+%*******************************************************
+%\refstepcounter{dummy}
+%\pdfbookmark[1]{\listtablename}{lot}
+%\newlistof{listoftables}{lot}{\listtablename}
+%\listoftables*
+
+%\vspace*{2.5cm}
+%*******************************************************
+% List of Listings
+%*******************************************************      
+%\refstepcounter{dummy}
+%\pdfbookmark[1]{\listlistingsname}{lol}
+%\newlistof{listoflistings}{lol}{\listlistingsname}
+%\listoflistings*
+%
+%%\clearpage
+
+%\cleardoublepage
+
+%*******************************************************
+% Acronyms
+%*******************************************************
+\iffalse
+\refstepcounter{dummy}
+\pdfbookmark[1]{Acronyms}{acronyms}
+\chapter*{Acronyms}
+\dado{sort alphabetically, update if needed or simply delete}
+\begin{acronym}[NGCUCX]
+	\acro{GP}{Gaussian Process}
+	\acro{GPLVM}{Gaussian Process Latent Variable Model}
+	\acro{PCA}{Principal Component Analysis}
+	\acro{PPCA}{Probabilistic Principal Component Analysis}	
+	\acro{kPCA}{Kernel Principal Component Analysis}
+	\acro{SNE}{Stochastic Neighbourhood Embedding}
+	\acro{t-SNE}{t-Distributed Stochastic Neighbourhood Embedding}
+	\acro{MF}{Magnification Factor}
+	\acro{Adam}{Adaptive Moment Estimation}
+	\acro{VAE}{Variational Autoencoder}
+	\acro{NN}{Neural Network}
+	\acro{SAS}{Stochastic Active Sets}
+	\acro{POLA}{Principle of Least Action}
+\end{acronym}   
+\fi
+\iffalse
+%*******************************************************
+% Notation
+%*******************************************************  
+\refstepcounter{dummy}
+\pdfbookmark[1]{Notation}{notation}
+\chapter*{Notation}
+\todo[inline]{Create table of notation for both Gp stuff and geometry stuff. This way I can make sure things are aligned.}
+\section*{General}
+$N$ is the number of observations \\
+$D$ is the dimensionality of one observation/of data space/of the observed space \\
+$q$ is the dimensionality of the latent space \\
+$Y$ is data, this lives in the observed space so $Y \in \mathbb{R}^{N\times D}$, alternatively for one point we have $y_i \in \mathbb{R}^{D}$ \\
+$X$ is a latent representation of data, this lives in the latent space so $X \in \mathbb{R}^{N\times D}$, alternatively for one point we have $y_i \in \mathbb{R}^{D}$ \\
+We use $f$ to denote a map from the latent space to the bserved space such that $f: \mathbb{R}^q \to \mathbb{R}^D$ with $q < D$\\
+$k(x,x')$ denotes the kernel that provides the covariance function. \\
+
+I will denote derivatives in a number of ways. \marginnote{As we say in Danish, "dear child has many names}
+
+
+
+\section*{GP}
+
+
+\section*{Geometry}
+Manifold \\
+Tangent space \\
+Curve \\
+Christffel symbol \\
+Uses Einstein notation \\
+
+%\clearpage
+\cleardoublepage
+\fi
+
+
+\endgroup

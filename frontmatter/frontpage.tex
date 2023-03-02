@@ -1,0 +1,47 @@
+\pagecolor{coverbackgroundcolor}
+\color{covertextcolor}
+
+\begin{whole}
+	\centering
+
+	{\begin{tabular}{p{\linewidth}}
+		\vspace{0.5cm}
+		{\hspace{-1.9cm}\HUGE \spacedlowsmallcaps \thesistitle}   \bigskip \\ 
+		\hspace{-1.9cm}\spacedlowsmallcaps{\Large\sffamily \thesisauthor}\\
+		{\hspace{-1.9cm}\spacedlowsmallcaps{\Large\sffamily \documenttype}}
+	\end{tabular}}
+	
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north east, xshift=-10mm, yshift=-12mm] 
+		at (current page.north east) 
+     		{\color{covertextcolor}
+       		 \begin{tabular}{r} 
+			\textbf{\spacedlowsmallcaps \department} \\ 
+        			\spacedlowsmallcaps \departmentdescriber
+        		\end{tabular}
+      		}; 
+	\end{tikzpicture}
+		
+	% DTU logo
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north west, xshift=8.9mm, yshift=-8.3mm] 
+	    	 at (current page.north west) 
+		{\includegraphics[width=14.75mm,keepaspectratio]{logo.pdf}};
+	\end{tikzpicture}
+
+	
+	% Cover photo
+	\begin{tikzpicture}[remember picture,overlay]
+%		\node[anchor=south, xshift=0pt, yshift=-70mm] at (current page.south)
+%	     	{\includegraphics[height=30.5cm,keepaspectratio]{frontpage.pdf}};
+		\node[anchor=south, xshift=0pt, yshift=-2.5mm] at (current page.south)
+	     	{\includegraphics[width=\paperwidth,keepaspectratio]{frontpage.pdf}};		
+		
+	\end{tikzpicture}
+	
+\end{whole}
+
+\clearpage
+\pagecolor{pagecolor}
+\color{textcolor}
+%TODO:  \color{covertextcolor} Need to set the pagecolor back to white

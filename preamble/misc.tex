@@ -1,0 +1,140 @@
+% see http://tex.stackexchange.com/questions/20890/define-an-escape-underscore-environment
+\makeatletter
+\DeclareRobustCommand*{\escapeus}[1]{%
+	\begingroup\@activeus\scantokens{#1\endinput}\endgroup}
+\begingroup\lccode`\~=`\_\relax
+\lowercase{\endgroup\def\@activeus{\catcode`\_=\active \let~\_}}
+\makeatother
+
+\DeclareRobustCommand{\run}[1]{\texttt{\escapeus{#1}}}
+\newcommand{\grid}[1]{\run{#1}}
+
+\DefineBibliographyStrings{english}{%
+	backrefpage = {Cited on p.~},
+	backrefpages = {Cited on pp.~}
+}
+
+
+\newcommand{\meanchristoffel}[2]{\tilde{\Gamma}^{#1}_{\hphantom{#1}#2}}% Christoffel symbol
+\newcommand{\varchristoffel}[2]{\hat{\Gamma}^{#1}_{\hphantom{#1}#2}}% Christoffel symbol
+
+\newcommand{\K}{\mathbf{K}} % Covariance/kernel Matrix
+\newcommand{\Y}{\mathbf{Y}} % Observations
+\newcommand{\X}{\mathbf{X}} % Latents
+
+
+%\renewcommand{\det}[1]{\operatorname{det}(#1)} % Determinant
+\newcommand{\D}{\mathrm{d}} % Differential
+
+
+\newcommand{\length}{\operatorname{Length}} % Length
+\newcommand{\energy}{\operatorname{Energy}} % Energy
+
+\newcommand{\cov}{\operatorname{cov}} % Covariance
+\newcommand{\tra}{^{\top}} % Matrix transpose
+\newcommand{\inv}{^{-1}} % Matrix Inverse
+\newcommand{\Rcal}{\mathcal{R}} % Rest set
+\newcommand{\Acal}{\mathcal{A}} % Active set
+\newcommand{\N}{\mathcal{N}} % Normal
+\newcommand{\Vcal}{\mathcal{V}} % Vietoris-Rips complex
+\newcommand{\Ncal}{\mathcal{N}} % Normal
+\newcommand{\Lcal}{\mathcal{L}} % Lower bound
+\newcommand{\Dcal}{\mathcal{D}} % pbservations
+\newcommand{\I}{\mathbb{I}} % Identity matrix
+\newcommand{\Ibb}{\mathbb{I}} % Identity matrix
+\newcommand{\Ebb}{\mathbb{E}} % Expectation
+\newcommand{\GP}{\mathcal{GP}} % GP
+\newcommand{\R}{\mathbb{R}} % Natural numbers
+\newcommand{\Rbb}{\mathbb{R}} % Natural numbers
+\newcommand{\M}{\mathcal{M}} % Manifold
+\newcommand{\Mcal}{\mathcal{M}} % Manifold
+\newcommand{\Wcal}{\mathcal{W}} % Wishart distribution
+\newcommand{\Xcal}{\mathcal{X}} % Latent Space
+\newcommand{\Ycal}{\mathcal{Y}} % Observation Space
+\newcommand{\T}{\mathcal{T}} % Tangent space
+\newcommand{\Tcal}{\mathcal{T}} % Normal
+\newcommand{\KL}{\operatorname{KL}} % KL div
+\newcommand{\s}{\sigma} % Sigma
+%\newcommand{\trans}{^\top}}} % Tranpose
+\newcommand{\christoffel}[2]{\Gamma^{#1}_{\hphantom{#1}#2}}% Christoffel symbol
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert} % Norms
+\newcommand{\dydx}[2]{\frac{\partial{#1}}{\partial{#2}}} % Partial derivatives
+\newcommand{\dydxsquared}[2]{\frac{\partial^2{#1}}{\partial{#2} ^2}} % Partial derivatives
+\newcommand{\jac}{\mathbf{ J}} %Jacobian
+\newcommand{\J}{\mathbf{J}} %Jacobian
+\renewcommand{\vec}[1]{\mathbf{#1}} % Vector
+
+
+
+
+
+\renewcommand{\eqref}[1]{equation~\ref{#1}}
+\newcommand{\Eqref}[1]{Equation~\ref{#1}}
+\newcommand{\partref}[1]{part~\ref{#1}}
+\newcommand{\Partref}[1]{Part~\ref{#1}}
+\newcommand{\figref}[1]{figure~\ref{#1}}
+\newcommand{\Figref}[1]{Figure~\ref{#1}}
+\newcommand{\tabref}[1]{table~\ref{#1}}
+%\newcommand{\secref}[1]{\textsection\,\ref{#1}}
+\newcommand{\secref}[1]{section~\ref{#1}}
+\newcommand{\Secref}[1]{Section~\ref{#1}}
+\newcommand{\thref}[1]{theorem~\ref{#1}}
+\newcommand{\Thref}[1]{Theorem~\ref{#1}}
+\newcommand{\chapref}[1]{chapter~\ref{#1}}
+\newcommand{\Chapref}[1]{Chapter~\ref{#1}}
+\newcommand{\appendixref}[1]{appendix~\ref{#1}}
+\newcommand{\Appendixref}[1]{Appendix~\ref{#1}}
+\newcommand{\listingref}[1]{code~listing~\ref{#1}}
+
+
+\MakeRobust{\eqref}
+\MakeRobust{\figref}
+\MakeRobust{\Figref}
+\MakeRobust{\partref}
+\MakeRobust{\Partref}
+\MakeRobust{\eqref}
+\MakeRobust{\Eqref}
+\MakeRobust{\tabref}
+\MakeRobust{\thref}
+\MakeRobust{\Thref}
+\MakeRobust{\chapref}
+\MakeRobust{\Chapref}
+\MakeRobust{\appendixref}
+\MakeRobust{\Appendixref}
+\MakeRobust{\listingref}
+
+\newcommand{\gp}{Gaussian process}
+\newcommand{\gps}{Gaussian processes}
+\newcommand{\gplvm}{Gaussian process latent variable model}
+
+\newcommand{\pla}{principle of least action }
+\newcommand{\wrt}{with respect to }
+\newcommand{\ie}{i.\,e., }
+\newcommand{\Ie}{I.\,e., }
+\newcommand{\eg}{e.\,g.\ }
+\newcommand{\Eg}{E.\,g.\ }
+\newcommand{\cf}{cf.\ }
+\newcommand{\Cf}{Cf.\ }
+
+\newcommand{\rn}[1]{%
+	\textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+
+\newcommand{\orderof}[1]{\mathcal{O}\left(#1\right)}
+\newcommand{\curl}{\text{curl}}
+\newcommand{\divergence}{\text{div}}
+\newcommand{\dx}[1]{~\text{d}#1}
+\newcommand{\Ddx}[1][]{\frac{\text{D}#1}{\text{d}t}}
+\newcommand{\mean}[1]{\langle #1 \rangle}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\updel}{\mathop{}\!\upDelta}
+
+\DeclareSIUnit\sv{Sv}
+\DeclareSIUnit\year{y}
+\DeclareSIUnit\permille{\text{\textperthousand}}
+
+\newcommand{\oldand}{\textsw{\& }}
+\newcommand{\work}[1]{\textsw{#1}}
+
+\DeclareFieldFormat*{citetitle}{\work{#1}}
+\newcommand{\citebook}[1]{\citetitle{#1} \citep{#1}}

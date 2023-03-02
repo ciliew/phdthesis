@@ -1,0 +1,332 @@
+\notocchapter{Documentation of class}
+\label{chap:doc}
+
+
+\fancyquote{Euclid}{That, if a straight line falling on two straight lines makes the interior angles on the same side less than two right angles, the two straight lines, if produced indefinitely, meet on that side on which the angles are less than two right angles.}
+
+
+This class allows for typesetting a beautiful thesis with a few custom options. This chapter documents and displays the options in this class I implemented. Feel free to make it your own.
+
+It builds on two other classes, Jesper's and Dion's which is build ono ?? and uses the principles from \texttt{Trees, maps, and theorems} by Jean-Luc Dumont (see section \ref{sec:trees}). Ultimately this are build on \texttt{memoir}. This can be used fr any type oof document.
+
+\section{Main.tex}
+
+For convenience, I introduced booleans that control if frontmatter, main matter or backmatter should be compiled. This is handy when having with numerous input files but working only in one.
+
+\subsection{Blackthesis}
+The \texttt{blackthesis} is an option parsed in the document class, eg \texttt{\textbackslash documentclass[a4paper,11pt,twoside,openright,blackthesis]\{phdthesis\}}. It changes the papercolor, textcolor, and link-,cite-,url colors. It always changes the figures path by appending a \texttt{blackfigs} to it. This means that a whole new set of figures are used to provide the user with both options.
+
+The cover and back pages are likewise changed to match the \texttt{blackthesis} option and it allows for matching cover images.
+
+The colors can be configured in the \textsc{phdthesis.cls}
+
+
+\section{Preamble}
+The directory preamble consists of four files. I inherited Listing.tex and misc.tex and I added drafts.tex and misc.tex myself.
+
+\subsubsection{misc.tex}
+Define handy shorthand commands for math and latex variables. This is handy for quickly changing the appearance/notation in a quick and consistent way.
+
+\subsubsection{draft.tex}
+\texttt{draft.tex} is a bunch of draft package like \texttt{todonotes} that allows for missingfigures, margin notes and inline notes. These can then be viewed in the todolist which is sort of like a table of contents for todos.
+
+
+Having these in a separate file that can be commented out at the time of final compilation should ensure that no todos or blindtext can be left in the final document without raising errors.
+
+\subsubsection{Figures}
+If you know that you will have a figure of something, it can often be handy to include a placeholder. This can be done with the missing figure command \textbackslash\texttt{missingfigure} or the includegraphics command using a placeholder, \textbackslash\texttt{\textbackslash includegraphics[width=\textbackslash linewidth]\{example-image-golden\}}.
+
+
+
+
+\subsection{statics.tex}
+This file contains the information on the front and back pages. The information here is used in the file \textsc{frontmatter/frontpage.tex} (described in section \ref{frontpage}) and in  \textsc{backmatter/backpage.tex} (described in section \ref{backpage}) 
+
+This is implemented an official DTU template that I don't recall where I found.
+
+
+\section{Frontmatter}
+Here one could add: Dedication, abstracts, acknowledgements, notation, preface, list of publications, acronyms, etc.
+
+\subsection{frontpage.tex} \label{frontpage}
+Adjust as you please
+
+\subsection{contents.tex}
+Contains toc, list of figs, notation, 
+
+\section{Backmatter}
+Thos could contains: Appendices, bibliographies, colophon (extra last page), publications.
+
+Note that the blackoption might not work too well with inputting pdfs. You would probably have to manually set the background color of the page for these page. You can use the color names defined in the .cls to keep it dynamic.
+
+
+\subsection{backpage.tex} \label{backpage}
+Text can be added here to describe the project.
+
+
+
+\subsection{A bit about references} \label{ssec:refs}
+The reference can be set up in the class file.
+
+The usual ref command gives: \ref{chap:intro}, \ref{sec:titles} and  \ref{ssec:refs}. But in the misc file, we define special reference commands for each depth that includes the prefix: \chapref{chap:intro}, \secref{sec:titles} and  \secref{ssec:refs}.
+
+Likewise, we define other robust reference. The command can be seen below.
+\begin{lstlisting}
+\newcommand{\partref}[1]{Part \ref{#1}}
+\newcommand{\figref}[1]{Fig.\ \ref{#1}}
+\newcommand{\tabref}[1]{Table \ref{#1}}
+\newcommand{\secref}[1]{\textsection\,\ref{#1}}
+\newcommand{\chapref}[1]{Chapter \ref{#1}}
+\newcommand{\appendixref}[1]{Appendix \ref{#1}}
+\newcommand{\listingref}[1]{Code Listing \ref{#1}}
+\end{lstlisting}
+
+There are backreferences for the citations.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\notocchapter{My writing process}
+I leave my brief thoughts on my writing process.
+
+
+\section{The Braindump}
+Hopefully, throughout my time as a student I have been doing some work. Writing papers, notes for yourself, code, making plots. Collect these. Group them.
+
+\section{The Outline}
+Based on the groups. Try to create a coherent stoory that include all of your groups. This might not be the chronological you did the work. Use bullets, and figures. Now what should go in each chapter, section, subsection and paragraph.
+
+Discuss this with my supervisor. It is a lt easier to adjust things now rather than once I have finished all of the writing.
+
+\section{The Vomit Draft}
+Get the thoughts out of you head and onto paper. It is so much easier to edit than to start from a blank page. 
+
+\section{Trees maps and theorems} \label{sec:trees}
+Meta: This summarises this book in very short.
+
+This class is built on \href{https://www.principiae.be/book/}{this book} by Jean-Luc Dumont\sidenote[-2]{It treats diffrent aspects of scientific coommunicationo but here we focus on written documents}. It defines three laws
+\sidedef{First law}{}{
+$$\textbf{Adapt to your audience}$$
+}
+My audience is first and foremost my committee. Next, I would like if master and Ph.D students might benefit from reading certain parts of the thesis. In either case I find it important to write in a style so I myself would have been able to understand at the beginning of my PhD studies. This is my starting point. With that being said, I have been more thorough or gone to a lower level in the part on geometry than for my own work. My intention is that the geometry chapter might be used for learning the elemental differential geometry needed for manifold learning using Einstein notation.
+
+\sidedef{Second law}{}{
+$$\textbf{Maximize the signal-to-noise ratio}$$
+}
+Tried doing this by not going into too much detail on methods that I expect people to know. I also have a matetext at the beginning of each part, chapter and section that explain the aim of the writing. I have tried following Tara Brabazon's ideas about topic sentences and the paragraph which lead me to develop a certain structure for each paragraph, see more on this in section \ref{sec:theparagraph}
+
+\sidedef{Third law}{}{
+$$\textbf{Use effective redundancy}$$
+}
+\todo[inline,color=mypink]{Read \href{https://www.principiae.be/book/pdfs/TM&Th-2.0-summary.pdf}{this summary} again}
+
+
+\section{The paragraph} \label{sec:theparagraph}
+Topic sentence, bridge sentence, template for a paragraph, one idea per paragraph. Link to Tara.
+
+Tips:
+1. Construct a strong, clear topic sentence.
+The topic sentence should identify the main point of your paragraph. As a general rule, topic sentences should be clear enough that a reader can get the gist of your paper just by reading the topic sentences of each paragraph. Try to keep topic sentences simple (e.g., avoid breaking them up with commas). Once you’ve written your paragraph, it’s helpful to go back and check that a) you have a topic sentence, and b) it clearly captures the focal point of the paragraph.
+
+2. Each paragraph should make one main point. In general, try to keep paragraphs between 3-5 sentences. If your paragraph is getting too long, it is probably making more than one main point, and it may be time to break it into two (and make a new topic sentence).
+
+Main idea: ...
+Old info: The manifold assumption is age old and use for justifying a lot of research. I
+New info: Another way to put this into use is to exploit/compute the geometry explicitly by learning the metric and computing geodesics
+
+Gaussian processes are considered too smooth and therefor does not capture the geometry.
+
+
+
+
+3. Establish internal flow by placing old information first and new information last.
+
+
+
+
+
+
+\section{Sanity checks}
+This is a list of my sanity check, I would have liked to go through before submitting. I leave it here as it might be useful to someone else.
+
+\begin{itemize}
+\item All figures, tables, definitions, etc are referred to
+\item All citations work, no ??
+\item All references work, no ??
+\item All figures have a label
+\item All figures should have a short name
+\item All figures should be placed properly, especially marginfigures. antimjustification is needed.
+\item Clearly state what is my work/contributions/novelty
+\item Check that all acronyms are added to the Acronyms
+\item Check that everything is added the index
+\item Check that no todos or example images or missing figures remain
+\item Check for consistent notation
+\item Check that notation page is up to date
+\item Check that color schemes work in both black and white thesis options if you are using the black options
+\item Remove draft packages
+\item Remove half sentences starting at a new page (in Danish: horeunger)
+\item Decide on citation style
+\item Spell check
+\item OMG gammar
+\item and the dreaded commas
+\end{itemize}
+
+
+
+
+
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\notocchapter{Random Examples}
+\label{chap:examples}
+
+\marginnote{This is all just a collection of random examples}
+The manifold assumption is central to my work: We assume that high-dimensional data lives on a lower dimensional manifold embedded in the high-dimensional space. Quite simply, this thesis explores how to learn this manifold. Understand the manifold assumption intuitively thoroughly. We won't focus too much on traditional methods but rather tie this in to probabilistic methods.
+
+\section[Short title for sec]{This here is a much longer title for a section but the short title should be shown in tocs.} \label{sec:titles}
+
+\begin{marginfigure}%[6cm]
+	\includegraphics[width=\linewidth]{example-image-golden}
+	\caption{This figure should be aligned with the text top}
+	\label{label_ex2_nofod}
+\end{marginfigure}
+
+\blindtext[1]
+
+
+
+
+\section{Other Examples}
+
+
+
+  \begin{table}[htbp]
+\caption{Minimum Requirements\sidenote[0]{This is a footnote in the margin - different from a marginnote} for Automatic Readmission into the Commerce Faculty}
+\centering
+\begin{tabular}{@{}p{0.12\textwidth}*{4}{L{\dimexpr0.22\textwidth-2\tabcolsep\relax}}@{}}
+\toprule
+& \multicolumn{2}{c}{BCom} & \multicolumn{2}{c}{B.Bus.Sci} \\
+\cmidrule(r{4pt}){2-3} \cmidrule(l){4-5}
+& Number of courses required to pass & Cumulative Total of Courses & Number of courses &         Cumulative Total of Courses\\
+\midrule
+First year & 4 & 8 & 4 & 18 \\
+\bottomrule
+\end{tabular}
+\label{table:mr}
+\end{table}
+
+\pagebreak
+\begin{figure}[t]%[htbp]
+	\begin{sidecaption}[Length of a Curve]{Illustration that any curve can be discretised and the lengths of the increments can be computed using Pythagoras. See if this figure can be merged with Tosi et al, 2014 figure 2. It might have to be full width.}[fig:curvelength]
+%	\missingfigure{curvelength.jpg}
+\centerline{\includegraphics[width=\textwidth]{example-image-golden}}
+%\caption{This should illustrate how an area element in the latent space in Cartesian coordinates gets distorted when mapped to another space}
+	\end{sidecaption}
+\label{fig:curvelength}
+\end{figure}
+
+ \begin{figure}[h]
+	\begin{whole}
+	\missingfigure{Full pagewidth figure to illustrate the idea of the VR complex: figure of points,points with balls with small d,  points with balls with large d}
+%		\includegraphics[width=\linewidth]{./figures/vr_complex.pdf}
+		\caption{illustrate the idea of the VR complex: a) figure of points, 2) points with balls with small d,  3) points with balls with large d}
+		\label{fig:vr_complex}
+	\end{whole}	
+\end{figure}
+
+
+\sidedef{Lambert-Beer's law}{}{
+\begin{align}
+\label{eq:lamb}
+	I(x) = I_0 \:e^{-\mu x}.
+\end{align}
+}
+
+
+\sidefigure[Attenuation]{
+\antimpjustification 
+Attenuation for all the different processes for Carbon in the energy range $5-150$ keV. T for total, P for photoelectric, C for Compton Scattering, and R for Rayleigh Scattering (Coherent Scattering). From \cite{XRayOpticsCalculator}}[fig:attenuation]{\includegraphics[width=\linewidth]{example-image-a}}
+
+
+\section{Remarks and Theorems}
+Unnumbered theorem-like \index{Theorem} environments are also possible.
+
+\begin{theorem}
+Let $f$ be a function whose derivative exists in every point, then $f$ is 
+a continuous function.
+\end{theorem}
+
+\begin{theorem}[Pythagorean theorem]
+\label{pythagorean}
+This is a theorema about right triangles and can be summarised in the next 
+equation 
+\[ x^2 + y^2 = z^2 \]
+\end{theorem}
+
+And a consequence of theorem \ref{pythagorean} is the statement in the next 
+corollary.
+
+\begin{definition}
+There's no right rectangle whose sides measure 3cm, 4cm, and 6cm..
+I have numbered definitions with respect to chapters
+\end{definition}
+
+You can reference theorems such as \ref{pythagorean} when a label is assigned.
+
+\begin{remark}
+Given two line segments whose lengths are $a$ and $b$ respectively, there is a 
+real number $r$ such that $b=ra$.
+Remarks are not numbered
+\end{remark}
+
+\sidedef{Hej}{}{
+Definition of something random
+}
+
+Just learnt how gather in the amsmath \index{Examples!amsmath} package can be used to align equation AND have text in between. OMG!
+\begin{gather}
+\vec{F}_\text{net} = m \vec{a}\\
+\intertext{This is the Newton's second law of motion when the mass does not change with time. But for time-varying mass, we have to use}
+\vec{F}_\text{net} = \frac{\textrm{d}(m\vec{v})}{\textrm{d}t}
+\end{gather}
+
+\subsection{Fancy Quotes}
+\fancyquote{Euclid}{That, if a straight line falling on two straight lines makes the interior angles on the same side less than two right angles, the two straight lines, if produced indefinitely, meet on that side on which the angles are less than two right angles.}
+
+\fancyquote{Johannes Kepler}{Where there is matter, there is geometry.}
+
+
+\subsection{Fun little thing}
+\raisebox{0pt}[0pt][0pt]{\Large%
+  \textbf{Aaaa\raisebox{-0.3ex}{a}%
+    \raisebox{-0.7ex}{aa}%
+    \raisebox{-1.2ex}{r}%
+    \raisebox{-2.2ex}{g}%
+    \raisebox{-4.5ex}{h}
+  }
+}
+he shouted but not even the next
+one in line noticed that something
+terrible had happened to him. Could maybe use this in introduction/preface or something.
+
+\subsection{Options in the blindtext package}
+\blindenumerate
+\blinddescription
+\blindmathpaper
+
+
+\notocchapter{Experiments}
+Github branches, colab notebooks?
+
+%\nomenclature{\(c\)}{Speed of light in a vacuum}
+%\nomenclature{\(h\)}{Planck constant}
+
+%\printnomenclature
+
+

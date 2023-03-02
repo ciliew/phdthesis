@@ -1,0 +1,17 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdftex 2020.12.11)  23 OCT 2022 12:31
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**drafts.tex
+(./drafts.tex
+./drafts.tex:3: Undefined control sequence.
+l.3 \usepackage
+               {todonotes}
+? 
+./drafts.tex:3: Emergency stop.
+l.3 \usepackage
+               {todonotes}
+End of file on the terminal!
+
+./drafts.tex:3:  ==> Fatal error occurred, no output PDF file produced!
