@@ -1,2 +1,2 @@
 # phdthesis
-My PhD thesis and tempalte
+My PhD thesis and template
